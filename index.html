@@ -7,15 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>simple tic-tac-toe game</title>
 </head>
+
 <body>
 
     <script>
+
+
+
+
+
         let stringifyBoard = function (board) {
             return board[0].join("   ") +
                 "\n" +
                 board[1].join("   ") +
                 "\n" +
                 board[2].join("   ");
+        }
+
+        debugger
+        let playerOne = prompt('What players do you want to start the game ? x or o ?', 'x');
+        
+        let firstPlayer = function () {
+            if (playerOne === 'x' || playerOne === 'o') {
+                return playerOne
+            } else {
+
+                playerOne = prompt("Please enter x or o", "x")
+
+            }
+            return firstPlayer()
         }
 
         let didWeWin = function (board, player) {
@@ -71,14 +91,15 @@
             return true;
         };
 
+
+
         let board = [
             ["-", "-", "-"],
             ["-", "-", "-"],
             ["-", "-", "-"],
         ];
 
-        let player = "x";
-
+        let player = firstPlayer()
         while (true) {
             let boardStr = stringifyBoard(board)
 
